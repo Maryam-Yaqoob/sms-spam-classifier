@@ -1,0 +1,79 @@
+# SMS Spam Classification
+
+A simple text classification project that detects whether an SMS message is **spam** or **ham** (not spam), built as a practical assessment task.
+
+## Dataset
+
+- **Name:** SMS Spam Collection
+- **Size:** 5,572 labeled SMS messages (4,825 ham / 747 spam) — well above the minimum 200-row requirement
+- **Source:** [SMS Spam Collection (UCI / mirrored dataset)](https://raw.githubusercontent.com/justmarkham/pycon-2016-tutorial/master/data/sms.tsv)
+- **Why this dataset:** It is a well-known, publicly available, real-world text classification benchmark with a clear binary label, minimal noise, and a realistic class imbalance (similar to real spam-filtering scenarios), making it a good fit for demonstrating an end-to-end NLP classification pipeline.
+
+## Approach
+
+### 1. Preprocessing
+- Lowercased all text
+- Removed URLs
+- Removed numbers
+- Removed punctuation
+- Normalized extra whitespace
+
+### 2. Train/Test Split
+- 80% train / 20% test
+- Stratified split to preserve the spam/ham ratio in both sets
+
+### 3. Feature Extraction
+- **TF-IDF Vectorization** (`TfidfVectorizer`) with English stop-word removal and a maximum of 5,000 features
+- TF-IDF was chosen over simple Bag-of-Words because it down-weights very common words and highlights terms that are more distinctive of spam vs. ham messages
+
+### 4. Model
+- **Logistic Regression** (`max_iter=1000`)
+- Chosen because it is a strong, fast, and well-understood baseline for text classification on TF-IDF features, performs well on relatively small/medium datasets, and produces probability scores along with easily interpretable coefficients
+
+### 5. Evaluation Metrics
+
+| Metric | Score |
+|---|---|
+| Accuracy | 0.9659 |
+| Precision (spam) | 1.0000 |
+| Recall (spam) | 0.7450 |
+| F1-Score (spam) | 0.8538 |
+
+**Confusion Matrix:**
+```
+              Predicted Ham   Predicted Spam
+Actual Ham         966              0
+Actual Spam         38            111
+```
+
+**Interpretation:** The model is very conservative about flagging spam (precision = 1.0, meaning it never wrongly labels a real message as spam), but it misses some spam messages (recall = 0.745). This is a reasonable trade-off for a spam filter, since falsely blocking a legitimate message is usually more costly than letting a few spam messages through.
+
+## How to Run
+
+```bash
+pip install -r requirements.txt
+python classifier.py
+```
+
+The script will:
+1. Load and preprocess the dataset (`sms.tsv`)
+2. Split it into train/test sets
+3. Train a TF-IDF + Logistic Regression model
+4. Print accuracy, precision, recall, F1-score, a full classification report, and a confusion matrix
+5. Run predictions on two custom example messages
+
+## Assumptions
+
+- The dataset file (`sms.tsv`) is included in this repository, so no internet download is required at run-time.
+- A fixed `random_state=42` is used for reproducibility of the train/test split.
+- "Spam" is treated as the positive class for precision/recall/F1 calculations.
+
+## Project Structure
+
+```
+.
+├── classifier.py       # Main script: preprocessing, training, evaluation
+├── sms.tsv             # Dataset (label \t text)
+├── requirements.txt    # Python dependencies
+└── README.md           # This file
+```
