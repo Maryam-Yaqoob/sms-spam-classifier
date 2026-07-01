@@ -52,15 +52,15 @@ Actual Spam         38            111
 
 ```bash
 pip install -r requirements.txt
-python classifier.py
+jupyter notebook Spam_Detector.ipynb
 ```
 
-The script will:
-1. Load and preprocess the dataset (`sms.tsv`)
+Run all cells in order. The notebook will:
+1. Load and preprocess the dataset (`spam.csv`)
 2. Split it into train/test sets
 3. Train a TF-IDF + Logistic Regression model
-4. Print accuracy, precision, recall, F1-score, a full classification report, and a confusion matrix
-5. Run predictions on two custom example messages
+4. Print accuracy, precision, recall, F1-score, classification report, and confusion matrix
+5. Run predictions on example messages
 
 ## Assumptions
 
@@ -72,8 +72,8 @@ The script will:
 
 ```
 .
-├── classifier.py       # Main script: preprocessing, training, evaluation
-├── sms.tsv             # Dataset (label \t text)
-├── requirements.txt    # Python dependencies
-└── README.md           # This file
+├── Spam_Detector.ipynb   # Main notebook: preprocessing, training, evaluation
+├── spam.csv              # Dataset (SMS Spam Collection)
+├── requirements.txt      # Python dependencies
+└── README.md             # This file
 ```
