@@ -49,17 +49,6 @@ A simple text classification project that detects whether an SMS message is **sp
 
 **Interpretation:** The model achieves 96.59% overall accuracy. It is very conservative about flagging spam (precision = 1.00 — never wrongly labels a real message as spam), but misses some spam messages (recall = 0.745). This trade-off is reasonable for a spam filter, since falsely blocking a legitimate message is usually costlier than letting a few spam messages through.
 
-
-
-**Confusion Matrix:**
-```
-              Predicted Ham   Predicted Spam
-Actual Ham         966              0
-Actual Spam         38            111
-```
-
-**Interpretation:** The model is very conservative about flagging spam (precision = 1.0, meaning it never wrongly labels a real message as spam), but it misses some spam messages (recall = 0.745). This is a reasonable trade-off for a spam filter, since falsely blocking a legitimate message is usually more costly than letting a few spam messages through.
-
 ## How to Run
 
 ```bash
