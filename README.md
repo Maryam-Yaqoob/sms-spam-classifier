@@ -32,17 +32,8 @@ A simple text classification project that detects whether an SMS message is **sp
 
 ### 5. Evaluation Metrics
 
-Metric              Score
-Accuracy             0.9659
+Class / MetricPrecisionRecallF1-ScoreSupportHam0.96221.00000.9807966Spam1.00000.74500.8538149Accuracy0.96591115Macro Avg0.98110.87250.91731115Weighted Avg0.96720.96590.96361115
 
-Class: Ham           Precision   Recall   F1-Score
-                        0.96       1.00      0.98
-
-Class: Spam          Precision   Recall   F1-Score
-                        1.00       0.75      0.85
-
-Macro Avg            Precision   Recall   F1-Score
-                        0.98       0.87      0.92
 
 
 **Confusion Matrix:**
