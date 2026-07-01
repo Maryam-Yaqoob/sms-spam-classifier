@@ -34,11 +34,11 @@ A simple text classification project that detects whether an SMS message is **sp
 
 | Class / Metric | Precision | Recall | F1-Score | Support |
 |-----------------|-----------|--------|----------|---------|
-| Ham             | 0.9622    | 1.0000 | 0.9807   | 966     |
-| Spam            | 1.0000    | 0.7450 | 0.8538   | 149     |
-| **Accuracy**    |           |        | **0.9659** | 1115  |
-| Macro Avg       | 0.9811    | 0.8725 | 0.9173   | 1115    |
-| Weighted Avg    | 0.9672    | 0.9659 | 0.9636   | 1115    |
+| Ham             | 0.96    | 1.00 | 0.98   | 966     |
+| Spam            | 0.99    | 0.73 | 0.84   | 149     |
+| **Accuracy**    |         |      | **0.9659** | 1115  |
+| Macro Avg       | 0.98    | 0.87 | 0.91   | 1115    |
+| Weighted Avg    | 0.96    | 0.96 | 0.96   | 1115    |
 
 **Confusion Matrix:**
 
