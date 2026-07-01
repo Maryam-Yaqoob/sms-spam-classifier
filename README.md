@@ -64,7 +64,7 @@ Run all cells in order. The notebook will:
 
 ## Assumptions
 
-- The dataset file (`sms.tsv`) is included in this repository, so no internet download is required at run-time.
+- The dataset file (spam.csv) is included in this repository, so no internet download is required at run-time.
 - A fixed `random_state=42` is used for reproducibility of the train/test split.
 - "Spam" is treated as the positive class for precision/recall/F1 calculations.
 
