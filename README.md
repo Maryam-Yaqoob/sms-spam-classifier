@@ -30,9 +30,24 @@ A simple text classification project that detects whether an SMS message is **sp
 - **Logistic Regression** (`max_iter=1000`)
 - Chosen because it is a strong, fast, and well-understood baseline for text classification on TF-IDF features, performs well on relatively small/medium datasets, and produces probability scores along with easily interpretable coefficients
 
-### 5. Evaluation Metrics
+## 5. Evaluation Metrics
 
-Class / MetricPrecisionRecallF1-ScoreSupportHam0.96221.00000.9807966Spam1.00000.74500.8538149Accuracy0.96591115Macro Avg0.98110.87250.91731115Weighted Avg0.96720.96590.96361115
+| Class / Metric | Precision | Recall | F1-Score | Support |
+|-----------------|-----------|--------|----------|---------|
+| Ham             | 0.9622    | 1.0000 | 0.9807   | 966     |
+| Spam            | 1.0000    | 0.7450 | 0.8538   | 149     |
+| **Accuracy**    |           |        | **0.9659** | 1115  |
+| Macro Avg       | 0.9811    | 0.8725 | 0.9173   | 1115    |
+| Weighted Avg    | 0.9672    | 0.9659 | 0.9636   | 1115    |
+
+**Confusion Matrix:**
+
+| | Predicted Ham | Predicted Spam |
+|---|---|---|
+| **Actual Ham** | 966 | 0 |
+| **Actual Spam** | 38 | 111 |
+
+**Interpretation:** The model achieves 96.59% overall accuracy. It is very conservative about flagging spam (precision = 1.00 — never wrongly labels a real message as spam), but misses some spam messages (recall = 0.745). This trade-off is reasonable for a spam filter, since falsely blocking a legitimate message is usually costlier than letting a few spam messages through.
 
 
 
