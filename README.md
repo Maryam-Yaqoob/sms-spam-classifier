@@ -44,10 +44,10 @@ A simple text classification project that detects whether an SMS message is **sp
 
 | | Predicted Ham | Predicted Spam |
 |---|---|---|
-| **Actual Ham** | 966 | 0 |
-| **Actual Spam** | 38 | 111 |
+| **Actual Ham** | 965 | 1 |
+| **Actual Spam** | 40 | 109 |
 
-**Interpretation:** The model achieves 96.59% overall accuracy. It is very conservative about flagging spam (precision = 1.00 — never wrongly labels a real message as spam), but misses some spam messages (recall = 0.745). This trade-off is reasonable for a spam filter, since falsely blocking a legitimate message is usually costlier than letting a few spam messages through.
+**Interpretation:** The model achieves 96.32% overall accuracy. It is highly conservative about flagging spam (precision = 0.99 — almost never wrongly labels a real message as spam), but misses some spam messages (recall = 0.73). This trade-off is reasonable for a spam filter, since falsely blocking a legitimate message is usually costlier than letting a few spam messages through.
 
 ## How to Run
 
